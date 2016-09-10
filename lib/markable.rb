@@ -14,7 +14,7 @@ module Markable
 protected
 
   def self.set_models
-    @@models = @@models.presence || ActiveRecord::Base.connection.tables.collect{ |t| t.classify rescue nil }.compact
+    @@models = @@models.presence || ActiveRecord::Base.connection.tables.collect{ |t| t.classify rescue nil }.compact rescue nil
   end
 
   def self.add_markable(markable)
